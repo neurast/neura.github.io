@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply m-0 p-0 box-border;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-neura-darker text-white;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(0, 107, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(0, 217, 255, 0.05) 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+
+  .glass-dark {
+    @apply bg-black/20 backdrop-blur-xl border border-white/5;
+  }
+
+  .glow-border {
+    @apply relative;
+  }
+
+  .glow-border::after {
+    @apply absolute inset-0 bg-gradient-to-r from-neura-blue/20 to-neura-cyan/20 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10;
+    content: '';
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-neura-cyan to-white;
+  }
+
+  .heading-lg {
+    @apply text-5xl md:text-7xl font-bold tracking-tight;
+  }
+
+  .heading-md {
+    @apply text-3xl md:text-5xl font-bold tracking-tight;
+  }
+
+  .heading-sm {
+    @apply text-xl md:text-2xl font-semibold tracking-tight;
+  }
+
+  .button-primary {
+    @apply px-6 py-3 rounded-lg bg-neura-blue hover:bg-neura-cyan text-white font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-neura-blue/50;
+  }
+
+  .button-secondary {
+    @apply px-6 py-3 rounded-lg border border-white/30 hover:border-neura-cyan text-white font-semibold transition-all duration-300 hover:bg-white/5;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-6 py-20 md:py-32;
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-neura-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-neura-blue rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-neura-cyan;
+}
+
+/* Selection */
+::selection {
+  @apply bg-neura-blue/50 text-white;
+}
