@@ -32,11 +32,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build Next.js app
+      - name: Build Next.js app (static export)
         run: npm run build
 
-      - name: Export static site
-        run: npm run export 2>/dev/null || npx next export
+      - name: List output directory
+        run: ls -la out/ 2>/dev/null || echo "Out folder will be created during build"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -49,3 +49,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
