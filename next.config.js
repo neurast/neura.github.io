@@ -3,11 +3,14 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    unoptimized: false,
+    unoptimized: true,
   },
   typescript: {
     ignoreBuildErrors: false,
   },
+  output: 'export',
+  basePath: '',
+  trailingSlash: true,
 };
 
 module.exports = nextConfig;
